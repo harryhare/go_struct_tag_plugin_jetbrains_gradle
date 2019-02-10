@@ -1,0 +1,43 @@
+<idea-plugin>
+    <id>com.planetexpress.go_struct_tag_generator</id>
+    <name>Generate struct tags for golang</name>
+    <vendor email="harryhare@163.com" url="">harryhare</vendor>
+
+    <description><![CDATA[
+    Generate struct tags for golang<br>
+    include:<br>
+    json tag<br>
+    bson tag<br>
+    only need to click the menu once, instead of use autocomplete many times to write every tag.
+    <em>golang</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <group id="TagPlugin.Menu" text="Tags" description="add tags for go struct">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="TagPlugin.Json" class="GenerateJsonAction" text="Generate Json tags"
+                    description="generate json tags for go struct"/>
+            <action id="TagPlugin.Bson" class="GenerateBsonAction" text="Generate Bson tags"
+                    description="generate bson tags for go struct"/>
+            <action id="TagPlugin.Both" class="GenerateBothAction" text="Generate Both tags"
+                    description="generate bson and json tags for go struct"/>
+            <action id="TagPlugin.CamelJson" class="GenerateCamelJsonAction" text="Generate Camel Json tags"
+                    description="generate json tags for go struct"/>
+            <action id="TagPlugin.CamelBson" class="GenerateCamelBsonAction" text="Generate Camel Bson tags"
+                    description="generate bson tags for go struct"/>
+            <action id="TagPlugin.CamelBoth" class="GenerateCamelBothAction" text="Generate Camel Both tags"
+                    description="generate bson and json tags for go struct"/>
+            <action id="TagPlugin.Remove" class="RemoveTagAction" text="Remove tags"
+                    description="remove tags for go struct"/>
+        </group>
+    </actions>
+</idea-plugin>
